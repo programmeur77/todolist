@@ -4,6 +4,8 @@ $(document).ready(function () {
         $error = $('#error'),
         $showList = $('#display-list ul');
 
+    var userAge = 18;
+
     $submit.click(function (e) {
         e.preventDefault();
         if ($input.val() !== '' && $input.val() !== null) {

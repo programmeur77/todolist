@@ -1,7 +1,7 @@
 # todolist
 ### About
 --------
-The aim of this project is to practice NodeJS, Express and mongoDB, aside with jQuery, by creating a todo list.
+The aim of this project is to practice NodeJS, Express and mongoDB, aside with jQuery, by creating a todo list. This is a basic CRUD API.
 
 ### How does it work ?
 ---------------------

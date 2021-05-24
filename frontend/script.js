@@ -2,17 +2,21 @@ $(document).ready(function () {
     let $submit = $('#add'),
         $input = $('#todo-item'),
         $error = $('#error'),
-        $showList = $('#display-list ul');
+        $showList = $('#display-list ul'),
+        $showNoList = $('#display-list');
 
     var userAge = 18;
 
-    $.get("/api/getItems",
+    $.get('http://localhost:3000/api/getItems',
         function (data) {
             $.each(data, function (id, val) { 
-                $showList.append('<li>' + val.item + '</li>');
+                $showList.append('<li>' + val.description + '</li>');
             });
         },
-    );
+    )
+        .fail(function(data) {
+            $showNoList.text('Aucun item enregistré');
+        });
 
     $submit.click(function (e) {
         e.preventDefault();

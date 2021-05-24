@@ -5,8 +5,6 @@ $(document).ready(function () {
         $showList = $('#display-list ul'),
         $showNoList = $('#display-list');
 
-    var userAge = 18;
-
     $.get('http://localhost:3000/api/getItems',
         function (data) {
             $.each(data, function (id, val) { 
@@ -18,6 +16,11 @@ $(document).ready(function () {
             $showNoList.text('Aucun item enregistré');
         });
 
+    $.post('http://localhost:3000/api/postItems', {description: $input.val()},
+        function (data) {
+            $showList.fadeIn(data);
+        });
+
     $submit.click(function (e) {
         e.preventDefault();
         if ($input.val() !== '' && $input.val() !== null) {
@@ -27,4 +30,8 @@ $(document).ready(function () {
             $error.text('Merci de remplir ce champ').show();
         }
     });
+
+    function getItems() {
+        
+    }
 });

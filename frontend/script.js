@@ -16,16 +16,14 @@ $(document).ready(function () {
             $showNoList.text('Aucun item enregistré');
         });
 
-    $.post('http://localhost:3000/api/postItems', {description: $input.val()},
-        function (data) {
-            $showList.fadeIn(data);
-        });
-
     $submit.click(function (e) {
         e.preventDefault();
         if ($input.val() !== '' && $input.val() !== null) {
             $error.hide();
-            console.log('OK');
+            $.post('http://localhost:3000/api/postItems', { description: $input.val() },
+                function (data) {
+                    $showList.fadeIn(data);
+                });
         } else {
             $error.text('Merci de remplir ce champ').show();
         }

@@ -18,7 +18,7 @@ app.use('/api/getItems', (req, res, next) => {
         if(item > 0) {
             return res.status(200).json({item});
         } else {
-            res.status(400).json({error : 'Aucun item enregistré'});
+            return res.status(400).json({error : 'Aucun item enregistré'});
         }
     })
     .catch (error => res.status(500).json({error}));
